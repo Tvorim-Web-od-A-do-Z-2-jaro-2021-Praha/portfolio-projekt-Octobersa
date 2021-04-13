@@ -1,0 +1,133 @@
+html {
+    background-image: linear-gradient(#F8B195,#F67280,#C06C84,#6C5B7B,#355C7D);
+    background-repeat:no-repeat;
+    background-position:bottom;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    width:320px; /*moje mentální příprava pro mobile-first*/
+    position: relative;
+    top: 0;
+    left: calc(50% - 160px);
+}
+
+.intro {
+    height: 50px;
+    text-align: center;
+    padding: 10px;
+}
+
+.intro__image {
+    width: 35px;
+    height: auto;
+}
+
+.intro__text {
+    font-size: 120%;
+}
+
+.menu {
+    height: auto;
+    display: block;
+    padding: 0 10%;
+}
+
+.menu__menu-item {
+    list-style: none;
+    border-bottom: solid #f36229 1px;
+}
+
+.menu__menu-item--prvni {
+    margin-top: 5px;
+}
+
+.menu__menu-item--posledni {
+    border-bottom: none;
+}
+
+.menu__menu-item a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color:black
+}
+
+.content {
+    display: block;
+}
+
+.content__section {
+    height: auto;
+    padding: 5px 10px;
+    margin:0px;
+}
+
+.about-me, .work-and-projects {
+    text-align: left; 
+}
+.skills, .contact {
+    text-align: right;
+}
+
+.about-me__image{
+    width:50px;
+    height: auto;
+    border-radius: 50%;
+}
+
+/* v tuto chvili pouze testovaci blbiny, ze mi funguje bem, ocekavam pouziti pro stylovani vyhledove */
+/* .skills__category {
+    background-color: teal;
+}
+
+.skills__category--technical {
+    color: yellow;
+}
+
+.skills__category--soft {
+    color: blue;
+}
+
+.skills__category--other {
+    color: pink;
+}
+ */
+.skills__list {
+    text-align: left;
+}
+
+/* .work-and-projects__section {
+    font-style: italic;
+}
+
+.work-and-projects__section--work {
+    color: seashell
+}
+
+.work-and-projects__section--projects {
+    color:skyblue;
+} */
+
+.contact__item {
+    text-align: center;
+    font-size: 80%;
+    margin: 2px 0;
+}
+
+.contact__item--email {
+    background-color:rgb(211, 84, 84);
+}
+
+.contact__item--linkedin {
+    background-color: #0072b1;
+}
+
+.contact__item--github{
+    background-color: black;
+    color: white;
+}
+
+.contact__item--instagram {
+    background-color: #833AB4;
+}
