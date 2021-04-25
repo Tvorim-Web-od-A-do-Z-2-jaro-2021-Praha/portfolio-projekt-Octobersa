@@ -6,36 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link rel="stylesheet" type="text/css" href="shpstyle.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://kit.fontawesome.com/2b4fa4ab5a.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Raleway" rel="stylesheet">
 </head>
 <body>
- <header class="intro">
-     <img class="intro__image" src="images/orange-1618917_640.png" alt="My logo">
-     <span class="intro__text">Hello, I am Simona</span>
-     </header>
- <ul class="menu">
-     <li class="menu__menu-item menu__menu-item--prvni"><a href="#aboutme">About Me</a></li>
-     <li class="menu__menu-item"><a href="#skills">My Skills</a></li>
-     <li class="menu__menu-item"><a href="#workandprojects">Work and Projects</a></li>
-     <li class="menu__menu-item menu__menu-item--posledni"><a href="#contact">Contacts</a></li>
+ <div class="wrapper">
+    <header class="intro">Hello, I am Simona</header>
+ <ul class="navigation">
+     <li class="navigation__nav-item navigation__nav-item--prvni"><a href="#aboutme">About Me</a></li>
+     <li class="navigation__nav-item"><a href="#skills">My Skills</a></li>
+     <li class="navigation__nav-item"><a href="#workandprojects">Work and Projects</a></li>
+     <li class="navigation__nav-item navigation__nav-item--posledni"><a href="#contact">Contacts</a></li>
  </ul>
  <div class="content">
- <div class="content__section about-me" id="aboutme">
     <h2>About Me</h2>
-    <img class="about-me__image" src="images/blank-profile-picture-973460_640.png" alt="My profile picture">
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-    Ab facilis dolores eligendi aliquid minus facere, non explicabo cum accusantium doloremque totam magnam, 
-    iusto in, iste assumenda at illum consectetur rem.</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-        Culpa esse at ea consequuntur? Itaque, inventore aut. Voluptatibus praesentium, 
-        ea quas, atque qui natus delectus quo nam similique fugiat soluta reprehenderit?</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-        Debitis voluptatem consequuntur temporibus deserunt molestiae placeat aspernatur vel quod impedit, 
-        velit quisquam iusto, optio perferendis voluptatibus sed facilis enim porro quibusdam!</p>
+ <div class="content__section about-me" id="aboutme">
+     <div class="about-me__image">
+    <img src="images/blank-profile-picture-973460_640.png" alt="My profile picture">
+    </div>
+    <div class="about-me__text">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+            Ab facilis dolores eligendi aliquid minus facere, non explicabo cum accusantium doloremque totam magnam, 
+            iusto in, iste assumenda at illum consectetur rem.</p>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                Culpa esse at ea consequuntur? Itaque, inventore aut. Voluptatibus praesentium, 
+                ea quas, atque qui natus delectus quo nam similique fugiat soluta reprehenderit?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Debitis voluptatem consequuntur temporibus deserunt molestiae placeat aspernatur vel quod impedit, 
+                velit quisquam iusto, optio perferendis voluptatibus sed facilis enim porro quibusdam!</p>
+    </div>
  </div>
+ <h2>Skills</h2>
  <div class="content__section skills" id="skills">
-    <h2>Skills</h2>
     <div class="skills__category skills__category--technical">
         <h3>Technical skills</h3>
         <ul class="skills__list">
@@ -61,8 +63,8 @@
         </ul>
  </div>  
  </div>
+ <h2>Work and projects</h2>
  <div class="content__section work-and-projects" id="workandprojects">
-    <h2>Work and projects</h2>
    <div class="work-and-projects__section work-and-projects__section--work">
     <h3>Work</h3>
        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
@@ -78,11 +80,23 @@
  </div>
  <div class="content__section contact" id="contact">
     <h2>Contacts</h2>
-        <div class="contact__item contact__item--email">janakova.s@gmail.com</div>
-        <div class="contact__item contact__item--linkedin">Linkedin</div>
-        <div class="contact__item contact__item--github">Github</div>
+    <div class="contact_items">
+    <div class="contact__item contact__item--email">
+        <i class="fas fa-envelope-square"></i>
+        </div>
+       <div class="contact__item contact__item--linkedin">
+        <i class="fab fa-linkedin"></i>
+        </div>
+       <div class="contact__item contact__item--github">
+        <i class="fab fa-github-square"></i>
+        </div>
     </div>
  </div>
 </div>
+<footer>
+    <p>TWAZ2 &copy; 2021</p>
+</footer>
+</div>
+<!-- here ends the wrapper -->
 </body>
 </html>
