@@ -1,126 +1,166 @@
+:root {
+    --primary: #82C0CC;
+    --secondary: #489FB5;
+    --dark: #16697A;
+    --light: #EDE7E3;
+    --shadow: 0 1px 5px #556264;
+}
+
 html {
-    background-image: linear-gradient(#F8B195,#F67280,#C06C84,#6C5B7B,#355C7D);
-    background-repeat:no-repeat;
-    background-position:bottom;
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+    color: var(--dark);
 }
 
 body {
-    font-family: 'Raleway', sans-serif;
-    width:320px; /*moje mentální příprava pro mobile-first*/
-    position: relative;
-    top: 0;
-    left: calc(50% - 160px);
+    background: var(--primary);
+    margin: 30px 5px;
 }
 
+h2,h3 {
+    margin: 0;
+}
+
+.wrapper {
+    display: grid;
+    align-content: center;
+    grid-gap: 10px;
+    padding: 30px;
+}
 .intro {
-    height: 50px;
-    text-align: center;
+    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/pexels-eberhard-grossgasteiger-443446.jpg);
+    background-size: cover;
     padding: 10px;
+    min-height: 200px;
+    font-size: 250%;
+    text-align: center;
+    font-weight: bold;
+    color: #FFA62B;
 }
 
-.intro__image {
-    width: 35px;
-    height: auto;
-}
-
-.intro__text {
-    font-size: 120%;
-}
-
-.menu {
-    height: auto;
-    display: block;
-    padding: 0 10%;
-}
-
-.menu__menu-item {
+.navigation {
+    display:grid;
+    grid-gap: 20px;
+    padding: 0;
     list-style: none;
-    border-bottom: solid #f36229 1px;
 }
 
-.menu__menu-item--prvni {
+.navigation__nav-item {
+    list-style: none;
+}
+
+/* .navigation__nav-item--prvni {
     margin-top: 5px;
 }
 
-.menu__menu-item--posledni {
+.navigation__nav-item--posledni {
     border-bottom: none;
-}
+} */
 
-.menu__menu-item a {
+.navigation__nav-item a {
     display: block;
     padding: 10px;
     text-decoration: none;
-    color:black
+    border-bottom:#FFA62B solid 2px;
+    color: var(--dark);
+    font-weight: bold;
+    box-shadow: var(--shadow);
+}
+
+.navigation__nav-item a:hover {
+    background: var(--dark);
+    color: var(--light);
 }
 
 .content {
-    display: block;
+    display:grid;
+    grid-gap: 30px;
 }
 
-.content__section {
-    height: auto;
-    padding: 5px 10px;
-    margin:0px;
-}
-
-.about-me, .work-and-projects {
-    text-align: left; 
-}
-.skills, .contact {
-    text-align: right;
+.about-me {
+    display:grid;
+    align-content: center;
+    grid-gap: 10px;
+    grid-template-areas:
+    "aboutMeImage"
+    "aboutMeText";
 }
 
 .about-me__image{
-    width:50px;
-    height: auto;
+    grid-area: aboutMeImage;
+}
+
+.about-me__image img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    width: 50%;
     border-radius: 50%;
 }
 
-/* v tuto chvili pouze testovaci blbiny, ze mi funguje bem, ocekavam pouziti pro stylovani vyhledove */
-/* .skills__category {
-    background-color: teal;
+.about-me__text{
+    grid-area: aboutMeText;
 }
 
-.skills__category--technical {
-    color: yellow;
+.skills {
+    display:grid;
+    grid-gap: 10px;
+    grid-template-areas:
+    'skillsCategoryTech'
+    'skillsCategorySoft'
+    'skillsCategoryOther';
+
 }
 
-.skills__category--soft {
-    color: blue;
+.skills__category--technical{
+    grid-area: skillsCategoryTech;
 }
 
-.skills__category--other {
-    color: pink;
+.skills__category--soft{
+    grid-area: skillsCategorySoft;
 }
- */
+
+.skills__category--other{
+    grid-area: skillsCategoryOther;
+}
+
 .skills__list {
     text-align: left;
 }
 
-/* .work-and-projects__section {
-    font-style: italic;
+.work-and-projects {
+    display:grid;
+    grid-gap:10px;
 }
 
-.work-and-projects__section--work {
-    color: seashell
+.contact_items {
+    display: grid;
+    place-content: center;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
 }
-
-.work-and-projects__section--projects {
-    color:skyblue;
-} */
-
 .contact__item {
     text-align: center;
     font-size: 80%;
     margin: 2px 0;
+    border-radius: 5px;
+}
+
+.contact__item i {
+    display:block;
+    padding: 10px;
+    min-width: 20px;    
 }
 
 .contact__item--email {
     background-color:rgb(211, 84, 84);
+    color: white;
 }
 
 .contact__item--linkedin {
     background-color: #0072b1;
+    color: white;
 }
 
 .contact__item--github{
@@ -128,6 +168,57 @@ body {
     color: white;
 }
 
-.contact__item--instagram {
-    background-color: #833AB4;
+footer {
+    margin-top: 20px;
+    background: var(--dark);
+    color:var(--light);
+    text-align: center;
+    font-size: 70%;
+}
+
+@media (min-width: 768px) {
+.navigation {
+    grid-template-columns: 1fr 1fr;
+
+}
+
+.about-me {
+    grid-template-columns: minmax(200px,1fr) 1fr 1fr;
+    grid-template-areas:
+    'aboutMeImage aboutMeText aboutMeText'
+    ;
+}
+
+.about-me__image img {
+    margin-top: 20px;
+    margin-bottom:0;
+}
+
+.skills {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+    'skillsCategoryTech skillsCategorySoft skillsCategoryOther'
+    ;
+}
+
+}
+
+@media (min-width: 1281px) {
+.navigation {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    
+}
+
+.about-me {
+    grid-template-columns: minmax(150px,1fr) 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+    'aboutMeImage aboutMeText aboutMeText aboutMeText aboutMeText'
+    ;
+}
+
+.work-and-projects {
+    grid-template-columns: 1fr 1fr;
+    
+}
+
 }
