@@ -1,0 +1,217 @@
+$primary: #82C0CC;
+$secondary: #489FB5;
+$dark: #16697A;
+$light: #EDE7E3;
+$shadow: 0 1px 5px #556264;
+$breakpointTablet: 768px; 
+$breakpointDesktop: 1281px;
+$mediumMargin: 1rem;
+$mediumPadding: 1rem;
+$bigPadding: 2rem;              
+
+html {
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+    color: $dark;
+}
+
+body {
+    background: $primary;
+    margin: $mediumMargin 5px;
+}
+
+h2,h3 {
+    margin: 0;
+}
+
+@mixin grid($alignContent: center, $gridGap: 1rem) {
+    display: grid;
+    align-content: $alignContent;
+    grid-gap: $gridGap;
+}
+
+.wrapper {
+    @include grid(center, 10px);
+    padding: $bigPadding;
+}
+
+.intro {
+    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/pexels-eberhard-grossgasteiger-443446.jpg);
+    background-size: cover;
+    padding: $mediumPadding;
+    min-height: 200px;
+    font-size: 250%;
+    text-align: center;
+    font-weight: bold;
+    color: #FFA62B;
+}
+
+.navigation {
+    @include grid(center, 20px);
+    padding: 0;
+    list-style: none;
+}
+
+.navigation__nav-item {
+    list-style: none;
+    a{
+        display: block;
+        padding: $mediumPadding;
+        text-decoration: none;
+        border-bottom:#FFA62B solid 2px;
+        color: $dark;
+        font-weight: bold;
+        box-shadow: $shadow;
+        &:hover {
+            background: $dark;
+            color: $light;
+        }
+    }
+}
+
+.content {
+    @include grid(center, 30px);
+}
+
+.about-me {
+    @include grid(center, 20px);
+    grid-template-areas:
+    'aboutMeImage'
+    'aboutMeText';
+    &__image {
+        grid-area: aboutMeImage;
+        img {
+            display: block;
+            margin: {
+                left: auto;
+                right: auto;
+                bottom: $mediumMargin
+            }
+            width: 50%;
+            border-radius: 50%;
+        }
+    }
+    &__text {
+        grid-area: aboutMeText;
+    }
+}
+
+@mixin skillCategory ($gridArea) {
+    grid-area: $gridArea;
+    display: inline-block;
+    text-align: left;
+}
+
+.skills {
+    &__category {
+        &--technical {
+            @include skillCategory(skillsCategoryTech);
+        }
+        &--soft {
+            @include skillCategory(skillsCategorySoft);
+        }
+        &--other {
+            @include skillCategory(skillsCategoryOther);
+        }
+    }
+    @include grid(center, 10px);
+    grid-template-areas:
+    'skillsCategoryTech'
+    'skillsCategorySoft'
+    'skillsCategoryOther'
+    ;
+}
+
+.work-and-projects {
+    @include grid(center, 10px);
+}
+
+.contact_items {
+    @include grid(center, 10px);
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+@mixin contactItem ($backGroundColor) {
+    background-color: $backGroundColor;
+    display: block;
+    text-align: center;
+    font-size: 80%;
+    margin: 2px 0;
+    border-radius: 5px;
+    color: $light;    
+}
+
+.contact__item {
+    i {
+        display:block;
+        padding: 10px;
+        min-width: 20px;    
+    }
+    &--email {
+        @include contactItem (red);
+    }
+    &--linkedin {
+        @include contactItem (#0072b1);
+    }
+    &--github {
+        @include contactItem (black);
+    }
+}
+
+footer {
+    margin-top: 20px;
+    background: $dark;
+    color:$light;
+    text-align: center;
+    font-size: 70%;
+}
+
+@mixin tablet {
+    @media (min-width: $breakpointTablet) { @content; }
+}
+
+@include tablet {
+.navigation {
+    grid-template-columns: 1fr 1fr;
+}
+
+.about-me {
+    grid-template-columns: minmax(200px,1fr) 1fr 1fr;
+    grid-template-areas:
+    'aboutMeImage aboutMeText aboutMeText'
+    ;
+    &__image img {
+        margin-top: 20px;
+        margin-bottom:0;
+    }
+}
+
+.skills {
+    grid-template-areas:
+    'skillsCategoryTech skillsCategorySoft skillsCategoryOther'
+    ;
+}
+}
+
+@mixin desktop {
+    @media (min-width: $breakpointDesktop) { @content; }
+}
+
+@include desktop {
+.navigation {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    
+}
+
+.about-me {
+    grid-template-columns: minmax(150px,1fr) 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+    'aboutMeImage aboutMeText aboutMeText aboutMeText aboutMeText'
+    ;
+}
+
+.work-and-projects {
+    grid-template-columns: 1fr 1fr;
+    
+}
+}
