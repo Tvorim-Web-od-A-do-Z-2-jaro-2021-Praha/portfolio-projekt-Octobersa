@@ -3,8 +3,10 @@ $secondary: #489FB5;
 $dark: #16697A;
 $light: #EDE7E3;
 $shadow: 0 1px 5px #556264;
+
 $breakpointTablet: 768px; 
 $breakpointDesktop: 1281px;
+
 $mediumMargin: 1rem;
 $mediumPadding: 1rem;
 $bigPadding: 2rem;              
@@ -35,12 +37,26 @@ h2,h3 {
     padding: $bigPadding;
 }
 
+
 .intro {
-    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/pexels-eberhard-grossgasteiger-443446.jpg);
+    background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/pexels-eberhard-grossgasteiger-443446-square.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
     padding: $mediumPadding;
-    min-height: 200px;
-    font-size: 250%;
+    min-height: 300px;
+    text-align: center;
+}
+
+.intro__logo {
+        display: inline-block;
+        max-width: 2rem;
+        height: auto;
+        margin-left: $mediumMargin;
+}
+
+.intro__text {
+    display: inline-block;
+    font-size: 4rem;
     text-align: center;
     font-weight: bold;
     color: #FFA62B;
@@ -127,35 +143,74 @@ h2,h3 {
 }
 
 .contact_items {
-    @include grid(center, 10px);
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-}
-
-@mixin contactItem ($backGroundColor) {
-    background-color: $backGroundColor;
-    display: block;
-    text-align: center;
-    font-size: 80%;
-    margin: 2px 0;
-    border-radius: 5px;
-    color: $light;    
+    @include grid(left, 10px);
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
 }
 
 .contact__item {
-    i {
-        display:block;
-        padding: 10px;
-        min-width: 20px;    
+    display: block;
+    margin: 2px 0;
+    width: 4rem;
+    height: auto;
+}
+
+#email {
+    &:hover {
+        #email-rect1 {
+            fill: #fff;
+        }
+        #email-rect2, #email-path {
+            transform: rotateY(360deg);
+            transform-origin: center;
+        }
+        #email-rect2 {
+            fill: teal;
+        }
+        #email-path {
+            stroke: #fff;
+        } 
     }
-    &--email {
-        @include contactItem (red);
+}
+
+#email-rect1, #email-rect2, #email-path {
+    transition: all ease 0.8s; 
+}
+
+#linkedin {
+    &:hover {
+    fill:#0077b5;
+    #linkedin-rect {
+        fill: #fff;
     }
-    &--linkedin {
-        @include contactItem (#0072b1);
+    #linkedin-circle {
+        animation: dissapear 0.5s ease;
+        animation-direction: alternate-reverse;
     }
-    &--github {
-        @include contactItem (black);
+    #linkedin-path1, #linkedin-path2 {
+        stroke: #0077b5;
     }
+    }
+}
+
+@keyframes dissapear {
+    to {
+        opacity: 0;
+    }
+}
+
+#github {
+    &:hover {
+        #github-rect {
+            fill: #fff;
+        }
+        #github-path {
+            fill: #1B1817;
+        }    
+    }
+}
+
+#github-path {
+    transition: all ease 1.5s; 
 }
 
 footer {
@@ -171,6 +226,12 @@ footer {
 }
 
 @include tablet {
+
+.intro {
+    background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/pexels-eberhard-grossgasteiger-443446-wide.jpg);
+    background-size: cover;
+}    
+
 .navigation {
     grid-template-columns: 1fr 1fr;
 }

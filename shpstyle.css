@@ -24,12 +24,25 @@ h2, h3 {
 }
 
 .intro {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0.3))), url(images/pexels-eberhard-grossgasteiger-443446.jpg);
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/pexels-eberhard-grossgasteiger-443446.jpg);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0.3))), url(images/pexels-eberhard-grossgasteiger-443446-square.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/pexels-eberhard-grossgasteiger-443446-square.jpg);
   background-size: cover;
+  background-repeat: no-repeat;
   padding: 1rem;
-  min-height: 200px;
-  font-size: 250%;
+  min-height: 300px;
+  text-align: center;
+}
+
+.intro__logo {
+  display: inline-block;
+  max-width: 2rem;
+  height: auto;
+  margin-left: 1rem;
+}
+
+.intro__text {
+  display: inline-block;
+  font-size: 4rem;
   text-align: center;
   font-weight: bold;
   color: #FFA62B;
@@ -147,47 +160,85 @@ h2, h3 {
 .contact_items {
   display: -ms-grid;
   display: grid;
-  -ms-flex-line-pack: center;
-      align-content: center;
+  -ms-flex-line-pack: left;
+      align-content: left;
   grid-gap: 10px;
-  -ms-grid-columns: (minmax(300px, 1fr))[auto-fill];
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  -ms-grid-columns: (minmax(100px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
 }
 
-.contact__item i {
+.contact__item {
   display: block;
-  padding: 10px;
-  min-width: 20px;
-}
-
-.contact__item--email {
-  background-color: red;
-  display: block;
-  text-align: center;
-  font-size: 80%;
   margin: 2px 0;
-  border-radius: 5px;
-  color: #EDE7E3;
+  width: 4rem;
+  height: auto;
 }
 
-.contact__item--linkedin {
-  background-color: #0072b1;
-  display: block;
-  text-align: center;
-  font-size: 80%;
-  margin: 2px 0;
-  border-radius: 5px;
-  color: #EDE7E3;
+#email:hover #email-rect1 {
+  fill: #fff;
 }
 
-.contact__item--github {
-  background-color: black;
-  display: block;
-  text-align: center;
-  font-size: 80%;
-  margin: 2px 0;
-  border-radius: 5px;
-  color: #EDE7E3;
+#email:hover #email-rect2, #email:hover #email-path {
+  -webkit-transform: rotateY(360deg);
+          transform: rotateY(360deg);
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+
+#email:hover #email-rect2 {
+  fill: teal;
+}
+
+#email:hover #email-path {
+  stroke: #fff;
+}
+
+#email-rect1, #email-rect2, #email-path {
+  -webkit-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+}
+
+#linkedin:hover {
+  fill: #0077b5;
+}
+
+#linkedin:hover #linkedin-rect {
+  fill: #fff;
+}
+
+#linkedin:hover #linkedin-circle {
+  -webkit-animation: dissapear 0.5s ease;
+          animation: dissapear 0.5s ease;
+  animation-direction: alternate-reverse;
+}
+
+#linkedin:hover #linkedin-path1, #linkedin:hover #linkedin-path2 {
+  stroke: #0077b5;
+}
+
+@-webkit-keyframes dissapear {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes dissapear {
+  to {
+    opacity: 0;
+  }
+}
+
+#github:hover #github-rect {
+  fill: #fff;
+}
+
+#github:hover #github-path {
+  fill: #1B1817;
+}
+
+#github-path {
+  -webkit-transition: all ease 1.5s;
+  transition: all ease 1.5s;
 }
 
 footer {
@@ -199,6 +250,11 @@ footer {
 }
 
 @media (min-width: 768px) {
+  .intro {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0.3))), url(images/pexels-eberhard-grossgasteiger-443446-wide.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/pexels-eberhard-grossgasteiger-443446-wide.jpg);
+    background-size: cover;
+  }
   .navigation {
     -ms-grid-columns: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
