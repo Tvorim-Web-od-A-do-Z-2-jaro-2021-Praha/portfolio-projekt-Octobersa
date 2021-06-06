@@ -1,30 +1,49 @@
-$primary: #82C0CC;
-$secondary: #489FB5;
-$dark: #16697A;
-$light: #EDE7E3;
-$shadow: 0 1px 5px #556264;
+$background: #16161a;
+$headline: #fffffe;
+$paragraph: #94a1b2;
+$button: #595c82;
+$button-text: #fffffe;
+$highlight: #ce9366;
+$shadow: 0 1px 5px #3b3d46;
 
 $breakpointTablet: 768px; 
 $breakpointDesktop: 1281px;
 
 $mediumMargin: 1rem;
+$bigMargin: 2rem;
 $mediumPadding: 1rem;
-$bigPadding: 2rem;              
+$bigPadding: 2rem;
+$smallBorderRadius: 0.25rem;              
 
 html {
     box-sizing: border-box;
-    font-family: 'Raleway', sans-serif;
-    color: $dark;
+    font-family: 'Montserrat', sans-serif;
 }
 
 body {
-    background: $primary;
+    background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/brian-patrick-tagalog-_8hGFBxWD0A-unsplash.jpg);
     margin: $mediumMargin 5px;
+    color: $paragraph;
+}
+
+h2 {
+    text-decoration: underline $highlight;
 }
 
 h2,h3 {
     margin: 0;
+    color:$headline;
 }
+
+li {
+    list-style: none;
+}
+
+blockquote {
+    text-align: center;
+    font-style: italic;
+}
+
 
 @mixin grid($alignContent: center, $gridGap: 1rem) {
     display: grid;
@@ -32,55 +51,72 @@ h2,h3 {
     grid-gap: $gridGap;
 }
 
-.wrapper {
-    @include grid(center, 10px);
-    padding: $bigPadding;
-}
-
 
 .intro {
-    background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/pexels-eberhard-grossgasteiger-443446-square.jpg);
+    background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/chris-havard-berge-pelpskt60TA-unsplash-small.jpeg);
     background-size: cover;
     background-repeat: no-repeat;
-    padding: $mediumPadding;
+    border-radius: $smallBorderRadius;
     min-height: 300px;
     text-align: center;
 }
 
 .intro__logo {
         display: inline-block;
-        max-width: 2rem;
+        max-width: 3rem;
         height: auto;
         margin-left: $mediumMargin;
 }
 
 .intro__text {
     display: inline-block;
-    font-size: 4rem;
+    font-size: 3rem;
     text-align: center;
     font-weight: bold;
-    color: #FFA62B;
+    color: $headline;
+    margin: $mediumMargin;
+}
+
+.wrapper {
+    @include grid(center, 10px);
+    padding: {
+        top:0;
+        right: $bigPadding;
+        left: $bigPadding;
+        bottom: $bigPadding;
+    }
+    margin: {
+        top: -$bigMargin;
+        right: $bigMargin;
+        left: $bigMargin;
+        bottom: $bigMargin;
+    }
+    background: $background;
+/*     position: relative;
+    top: 0; */
+    float:initial;
+    border-radius: $smallBorderRadius;
 }
 
 .navigation {
     @include grid(center, 20px);
     padding: 0;
-    list-style: none;
 }
 
 .navigation__nav-item {
-    list-style: none;
     a{
         display: block;
         padding: $mediumPadding;
         text-decoration: none;
-        border-bottom:#FFA62B solid 2px;
-        color: $dark;
-        font-weight: bold;
-        box-shadow: $shadow;
-        &:hover {
-            background: $dark;
-            color: $light;
+        text-align: center;
+        font-weight: bolder;
+        font-size: 115%;
+        background: $button;
+        color: $button-text;
+        border-radius: $smallBorderRadius;
+        &:hover, &:focus {
+            background: $headline;
+            color: $highlight;
         }
     }
 }
@@ -89,8 +125,17 @@ h2,h3 {
     @include grid(center, 30px);
 }
 
+.content__section {
+    padding-bottom: $mediumPadding;
+    border-bottom: dotted 0.5px $paragraph;
+}
+
+.contact {
+border:none
+}
+
 .about-me {
-    @include grid(center, 20px);
+@include grid(center, 20px);
     grid-template-areas:
     'aboutMeImage'
     'aboutMeText';
@@ -101,7 +146,7 @@ h2,h3 {
             margin: {
                 left: auto;
                 right: auto;
-                bottom: $mediumMargin
+                bottom: $bigMargin
             }
             width: 50%;
             border-radius: 50%;
@@ -112,8 +157,7 @@ h2,h3 {
     }
 }
 
-@mixin skillCategory ($gridArea) {
-    grid-area: $gridArea;
+@mixin skillCategory {
     display: inline-block;
     text-align: left;
 }
@@ -121,41 +165,50 @@ h2,h3 {
 .skills {
     &__category {
         &--technical {
-            @include skillCategory(skillsCategoryTech);
+            @include skillCategory;
         }
         &--soft {
-            @include skillCategory(skillsCategorySoft);
+            @include skillCategory;
         }
         &--other {
-            @include skillCategory(skillsCategoryOther);
+            @include skillCategory;
         }
     }
-    @include grid(center, 10px);
-    grid-template-areas:
-    'skillsCategoryTech'
-    'skillsCategorySoft'
-    'skillsCategoryOther'
-    ;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
 }
 
 .work-and-projects {
-    @include grid(center, 10px);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.work-and-projects__section {
+    flex-direction: column;
+    margin: $mediumMargin;
 }
 
 .contact_items {
-    @include grid(left, 10px);
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    display: flex;
+    flex-flow: column;
+    justify-content: left;    
+    margin-top: $bigMargin;
 }
 
 .contact__item {
     display: block;
-    margin: 2px 0;
-    width: 4rem;
+    margin: $mediumMargin 2px;
+    min-width: 4rem;
+    &--email, &--linkedin, &--github {
+        max-width: 6rem;
+    }
     height: auto;
 }
 
 #email {
-    &:hover {
+    &:hover, &:focus {
         #email-rect1 {
             fill: #fff;
         }
@@ -177,7 +230,7 @@ h2,h3 {
 }
 
 #linkedin {
-    &:hover {
+    &:hover, &:focus {
     fill:#0077b5;
     #linkedin-rect {
         fill: #fff;
@@ -199,7 +252,7 @@ h2,h3 {
 }
 
 #github {
-    &:hover {
+    &:hover, &:focus {
         #github-rect {
             fill: #fff;
         }
@@ -215,10 +268,11 @@ h2,h3 {
 
 footer {
     margin-top: 20px;
-    background: $dark;
-    color:$light;
+    background: $button;
+    color: $button-text;
     text-align: center;
     font-size: 70%;
+    border-radius: $smallBorderRadius;
 }
 
 @mixin tablet {
@@ -228,9 +282,15 @@ footer {
 @include tablet {
 
 .intro {
-    background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/pexels-eberhard-grossgasteiger-443446-wide.jpg);
+    background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/chris-havard-berge-pelpskt60TA-unsplash.jpg);
+    background-position: center;
     background-size: cover;
-}    
+} 
+
+.intro__text {
+    margin-left: $bigMargin;
+    font-size: 4rem;
+}
 
 .navigation {
     grid-template-columns: 1fr 1fr;
@@ -241,17 +301,19 @@ footer {
     grid-template-areas:
     'aboutMeImage aboutMeText aboutMeText'
     ;
-    &__image img {
-        margin-top: 20px;
-        margin-bottom:0;
-    }
 }
 
-.skills {
-    grid-template-areas:
-    'skillsCategoryTech skillsCategorySoft skillsCategoryOther'
-    ;
+.contact_items {
+    display: flex;
+    flex-flow: row;
+    justify-content: left;    
+    margin-top: $bigMargin;
 }
+
+.contact__item {
+    margin: 2px $bigMargin;
+}
+
 }
 
 @mixin desktop {
@@ -271,8 +333,9 @@ footer {
     ;
 }
 
-.work-and-projects {
-    grid-template-columns: 1fr 1fr;
-    
+.work-and-projects__section {
+    flex-direction: row;
+    flex: 0 1 45%;
 }
+
 }
